@@ -6,7 +6,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'app.js'
+    filename: 'app.js',
   },
   module: {
     rules: [
@@ -14,32 +14,32 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader'
-        }
+          loader: 'babel-loader',
+        },
       },
       {
         test: /\.css$/,
         use: [
           miniCssExptractPlugin.loader,
-          'css-loader'
-        ]
+          'css-loader',
+        ],
       },
       {
         test: /\.html$/,
         use: {
-          loader: 'html-loader'
-        }
-      }
-    ]
+          loader: 'html-loader',
+        },
+      },
+    ],
   },
   plugins: [
     new miniCssExptractPlugin({
       filename: '[main].css',
-      chunkFilename: '[id].css'
+      chunkFilename: '[id].css',
     }),
     new htmlWebpackPlugin({
       template: './src/index.html',
-      filename: 'index.html'
-    })
-  ]
-}
+      filename: 'index.html',
+    }),
+  ],
+};
